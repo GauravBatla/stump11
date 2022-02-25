@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row  d-flex justify-content-center pt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <h1 class="text-center py-2">Login In</h1> <br> <span style="color: red; text-align: center;"><h5> {{ msg.error?msg.error:" "}} </h5></span>
+                <mat-card>
+                    <form [formGroup]="adminLogin" (ngSubmit)="login()">
+                        <mat-card-content>
+                            <mat-form-field class="w-100" appearance="outline">
+                                <mat-label>Email</mat-label>
+                                <input matInput formControlName="email" placeholder="label">
+                            </mat-form-field>
+                            <br>
+                            <mat-form-field class="w-100" appearance="outline">
+                                <mat-label>Password</mat-label>
+                                <input formControlName="password" matInput placeholder="label">
+                            </mat-form-field>
+                        </mat-card-content>
+                        <button type="submit" mat-raised-button>Login</button>
+                    </form>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

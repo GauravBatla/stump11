@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-center">
+
+    <ng-container *ngIf="type == 'adhaar'">
+        <img style="width: 100px; height: 100px;" src="http://192.168.68.135:4228/documents/aadhar/{{image}}" alt="">
+        <mat-form-field appearance="fill">
+            <mat-label>Cars</mat-label>
+            <select matNativeControl required>
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+        </mat-form-field>
+        <button mat-raised-button>Allow</button>
+    </ng-container>
+
+    <ng-container *ngIf="type =='pancard'">
+        <img style="width: 100px; height: 100px;" src="http://192.168.68.135:4228/documents/panCard/{{image}}" alt="">
+        <button mat-raised-button>Allow</button>
+    </ng-container>
+
+    <ng-container *ngIf="type == 'license'">
+        <img style="width: 100px; height: 100px;" src="http://192.168.68.135:4228/documents/aadhar/{{image}}" alt="">
+        <button mat-raised-button>Allow</button>
+    </ng-container>
+</div>

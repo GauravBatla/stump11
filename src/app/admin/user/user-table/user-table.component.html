@@ -1,0 +1,33 @@
+<div class="container m-5">
+    <div class="table-responsive">
+        Time: {{ time | async }}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>State</th>
+                    <th>User Type</th>
+                    <th>View</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data   | paginate: { itemsPerPage: 10, currentPage: p }">
+                    <td>{{item.username}}</td>
+                    <td>{{item.phone}}</td>
+                    <td>{{item.email?item.email:"test@gmail.com"}}</td>
+                    <td>{{item.state?item.state:"state here"}}</td>
+                    <td>{{item.userType}}</td>
+
+                    <td>
+                        <a [routerLink]="['/user/detail/',item._id]" routerLinkActive="router-link-active">
+                            <mat-icon> remove_red_eye</mat-icon>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table><br>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>
