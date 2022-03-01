@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8 grid-margin stretch-card">
-            <div class="card" style="">
+            <div class="card">
                 <div class="card-body">
                     <h4 style="text-align: center;" class="card-title">Coupons Control
                     </h4>
@@ -11,7 +11,7 @@
                         Reject Photo Expert/User
                     </p> -->
 
-                    <form class="example-container" [formGroup]="addCoupon" (ngSubmit)="add()">
+                    <form class="example-container" [formGroup]="addCoupon"  (ngSubmit)="addData?add():updateCoupon()">
                         <div class="row mt-5">
                             <div class="col">
                                 <label for="">Title</label>
@@ -27,7 +27,7 @@
                         <div class="row mt-5">
                             <div class="col">
                                 <label for="">Start date</label>
-                                <input type="date" formControlName="start_date" class="form-control"
+                                <input type="date" value={{start_date}} formControlName="start_date" class="form-control"
                                     placeholder="Start Date">
                             </div>
                             <div class="col">
@@ -41,19 +41,31 @@
                                 <label for="">Image</label>
                                 <input type="file" (change)="onFileChanged($event)" formControlName="image_path"
                                     class="form-control" placeholder="enter title">
-                                    <img [src]='image' alt=""  >
-                                    <div>
-                                        <p>image </p>
-                                        <img src="http://192.168.68.135:4228/{{showImage}}" alt="Red dot" />
-                                        <!-- <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
+                                <img *ngIf="image" style="width: 100px; height: 100px;" [src]='image' alt="">
+                                <div>
+                                    <p>image </p>
+                                    <img *ngIf="showImage" style="width: 250px; height: 250px;"
+                                        src="http://192.168.68.135:4228/coupons/images/{{showImage}}" alt="Red dot" />
+                                    <!-- <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
                                           AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
                                               9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot" /> -->
-                                      </div>
+                                </div>
                             </div>
                             <div class="col">
                                 <label for="">Add Banner</label>
                                 <input type="file" (change)="onFilChanged($event)" formControlName="banner_path"
                                     class="form-control" placeholder="enter title">
+                                <img *ngIf="banner_image" style="width: 100px; height: 100px;" [src]='banner_image'
+                                    alt="">
+
+                                <div>
+                                    <p>image </p>
+                                    <img *ngIf="show_banner" style="width: 250px; height: 250px;"
+                                        src="http://192.168.68.135:4228/coupons/banner/{{show_banner}}" alt="Red dot" />
+                                    <!-- <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
+                                              AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
+                                                  9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot" /> -->
+                                </div>
                             </div>
                         </div>
                         <div class="row mt-5">
@@ -74,7 +86,8 @@
                         </div>
                         <label class="mt-5">Terms Conditions</label>
                         <angular-editor rows="5" formControlName="terms_conditions"></angular-editor>
-                        <button class="mt-3" type="submit" mat-stroked-button color="primary">Add</button>
+                        <button *ngIf="addData" class="mt-3" type="submit" mat-stroked-button color="primary">Add</button>
+                        <button *ngIf="update" class="mt-3" type="submit" mat-stroked-button color="primary">Update</button>
                     </form>
                 </div>
             </div>

@@ -20,6 +20,22 @@ const routes: Routes = [
       {
         path: "user-documents",
         loadChildren: () => import('./user-docs/user-docs.module').then(m => m.UserDocsModule)
+      },
+      {
+        path: "user-transaction",
+        loadChildren: () => import('./user-transactions/user-transactions.module').then(m => m.UserTransactionsModule)
+      },
+      {
+        path: "page",
+        loadChildren: () => import('./web-view/web-view.module').then(m => m.WebViewModule)
+      },
+      {
+        path: "app-setting",
+        loadChildren: () => import('./app-setting/app-setting.module').then(m => m.AppSettingModule)
+      },
+      {
+        path:"contest",
+        loadChildren:()=>import('./contest/contest.module').then(m=>m.ContestModule)
       }
     ]
 

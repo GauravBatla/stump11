@@ -18,4 +18,7 @@ export class AuthServiceService {
   userList(){
     return this._http.get('/api/admin/user-list')
   }
+  webViewList(){
+    return this._http.get('api/admin/list/web-view-page')
+  }
 }

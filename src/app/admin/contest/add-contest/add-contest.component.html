@@ -1,0 +1,35 @@
+<mat-card class="m-5">
+    <mat-card-title class="d-flex justify-content-center m-2">Add Category</mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+    <mat-card-actions>
+        <div class="container">
+            <div class="row">
+                <div class="mb-3">
+                    <label for="">Select Category</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option *ngFor="let item of catList" value="1">{{item.title}}</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Contest Price</label>
+                    <input class="form-control" type="text" id="formFile">
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Contest Entry</label>
+                    <input class="form-control" type="text" id="formFile">
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Total Spots</label>
+                    <input class="form-control" type="text" id="formFile">
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Image</label>
+                    <input class="form-control" type="file" id="formFile">
+                </div>
+            </div>
+        </div>
+    </mat-card-actions>
+</mat-card>

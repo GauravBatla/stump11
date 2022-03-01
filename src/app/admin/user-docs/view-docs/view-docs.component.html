@@ -1,26 +1,61 @@
-<div class="d-flex justify-content-center">
+<mat-card class="m-5">
+    <mat-card-title>Document Status Update</mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+    <mat-card-actions>
+        <div *ngIf="type == 'adhaar'" class="container">
+            <div class="row">
+                <div class="mb-3">
+                    <select [(ngModel)]="name" class="form-select" name="name" required>
+                        <option selected>Update Status</option>
+                        <option value="1">Accept</option>
+                        <option value="2">Reject</option>
+                        <option value="0">Pending</option>
+                    </select>
+                </div>
+                <div class="mb-3">
 
-    <ng-container *ngIf="type == 'adhaar'">
-        <img style="width: 100px; height: 100px;" src="http://192.168.68.135:4228/documents/aadhar/{{image}}" alt="">
-        <mat-form-field appearance="fill">
-            <mat-label>Cars</mat-label>
-            <select matNativeControl required>
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-            </select>
-        </mat-form-field>
-        <button mat-raised-button>Allow</button>
-    </ng-container>
+                    <img style="width: 200px; height: 200px;"
+                        src="http://192.168.68.135:4228/documents/aadhar/{{image}}" alt="">
+                </div>
+                <button mat-raised-button (click)="update()">Allow</button>
+            </div>
+        </div>
+        <div *ngIf="type == 'pancard'" class="container">
+            <div class="row">
+                <div class="mb-3">
+                    <select [(ngModel)]="name" class="form-select" name="name" required>
+                        <option selected>Update Status</option>
+                        <option value="1">Accept</option>
+                        <option value="2">Reject</option>
+                        <option value="0">Pending</option>
+                    </select>
+                </div>
+                <div class="mb-3">
 
-    <ng-container *ngIf="type =='pancard'">
-        <img style="width: 100px; height: 100px;" src="http://192.168.68.135:4228/documents/panCard/{{image}}" alt="">
-        <button mat-raised-button>Allow</button>
-    </ng-container>
+                    <img style="width: 200px; height: 200px;"
+                        src="http://192.168.68.135:4228/documents/panCard/{{image}}" alt="">
 
-    <ng-container *ngIf="type == 'license'">
-        <img style="width: 100px; height: 100px;" src="http://192.168.68.135:4228/documents/aadhar/{{image}}" alt="">
-        <button mat-raised-button>Allow</button>
-    </ng-container>
-</div>
+                </div>
+                <button mat-raised-button (click)="update()">Allow</button>
+            </div>
+        </div>
+        <div *ngIf="type == 'license'" class="container">
+            <div class="row">
+                <div class="mb-3">
+                    <select [(ngModel)]="name" class="form-select" name="name" required>
+                        <option selected>Update Status</option>
+                        <option value="1">Accept</option>
+                        <option value="2">Reject</option>
+                        <option value="0">Pending</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+
+                    <img style="width: 200px; height: 200px;"
+                        src="http://192.168.68.135:4228/documents/license/{{image}}" alt="">
+                </div>
+                <button mat-raised-button (click)="update()">Allow</button>
+            </div>
+        </div>
+
+    </mat-card-actions>

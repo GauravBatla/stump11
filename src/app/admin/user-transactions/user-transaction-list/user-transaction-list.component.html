@@ -1,0 +1,37 @@
+<div class="container m-5">
+    <select (click)="onClick($event)" class="form-select w-25 m-5" aria-label="Default select example">
+        <option value="" disabled selected>Filter Transactions</option>
+        <option value="SUCCESS">SUCCESS</option>
+        <option value="FAILED">FAILED</option>
+        <option value="All">All Transactions</option>
+    </select>
+    <div class="table-responsive">
+        <!-- Time: {{ time | async }} -->
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th> Transaction Amount</th>
+                    <th>Transaction Date</th>
+                    <th>Transaction status</th>
+                    <th>View user</th>
+                    <!-- <th>Edit</th> -->
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr *ngFor="let item of data  | paginate: { itemsPerPage: 10, currentPage: p }">
+                    <td>{{item.userId.username}}</td>
+                    <td>{{item.userId.email}}</td>
+                    <td>{{item.orderAmount|currency :'INR'}}</td>
+                    <td>{{item.txTime | date}}</td>
+                    <td>{{item.txStatus}}</td>
+                    <td> <button [routerLink]="['/user/detail',item.userId._id]" routerLinkActive="router-link-active"
+                            mat-raised-button>View User</button> </td>
+                </tr>
+            </tbody>
+        </table><br>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>

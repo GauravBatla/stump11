@@ -7,6 +7,34 @@
       <a mat-list-item [routerLink]="['user/list']" routerLinkActive="router-link-active">User List</a>
       <a mat-list-item [routerLink]="['/coupons']" routerLinkActive="router-link-active">Coupons</a>
       <a mat-list-item [routerLink]="['/user-documents']" routerLinkActive="router-link-active">User Document</a>
+      <a mat-list-item [routerLink]="['/user-transaction']" routerLinkActive="router-link-active">User Transactions</a>
+      <a mat-list-item [routerLink]="['/app-setting']" routerLinkActive="router-link-active">App Setting</a>
+      <!-- <a mat-list-item [routerLink]="['/contest']" routerLinkActive="router-link-active">Contest</a> -->
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Contest Menu
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <!-- <a mat-list-item [routerLink]="['page/add']">Add Contest Category</a> -->
+          <a mat-list-item [routerLink]="['contest/categories']">Contest Categories</a>
+          <a mat-list-item [routerLink]="['contest/list']">Contest List</a>
+          <!-- <a mat-list-item [routerLink]="[/]"> Kuch Bhi </a> -->
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Add Web Pages
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a mat-list-item [routerLink]="['page/add']">Add Content </a>
+          <a *ngFor="let item of list" mat-list-item [routerLink]="['page/detail/',item._id]">{{item.title}} </a>
+          <!-- <a mat-list-item [routerLink]="[/]"> Kuch Bhi </a> -->
+        </mat-expansion-panel>
+      </mat-accordion>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

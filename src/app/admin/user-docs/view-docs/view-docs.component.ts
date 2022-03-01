@@ -8,6 +8,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ViewDocsComponent implements OnInit {
 
+  name:any
   type: any
   image: any
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
@@ -18,4 +19,8 @@ export class ViewDocsComponent implements OnInit {
     this.image = this.data.image_path
   }
 
+  update(){
+    console.log(this.name);
+    
+  }
 }

@@ -13,23 +13,33 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class AddEditCouponComponent implements OnInit {
 
-  // update = this.data.update ? this.data.update : false
+  addData = true
+
+  update: any = false
+
   showImage: any
+  show_banner: any
   image: any
   banner_image: any
   selectedFile: any
+  start_date: any
 
-
-
-
-  constructor(private CouponService: CouponService, @Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(private CouponService: CouponService, @Inject(MAT_DIALOG_DATA) public data: any) {
+    if (this.data.update) {
+      this.addData = false
+      this.update = true
+    }
+  }
 
   ngOnInit(): void {
-    console.log(this.data);
+    console.log(this.addData);
     console.log(this.data.data._id);
     this.showImage = this.data.data.image_path
-    console.log(this.image, "image");
-  }
+    this.show_banner = this.data.data.banner_path
+    this.start_date = this.data.data.start_date
+  };
+
+
   addCoupon = new FormGroup({
     title: new FormControl(this.data.data.title ? this.data.data.title : null, [Validators.required]),
     image_path: new FormControl(this.data.data.image_path ? this.data.data.image_path : null, [Validators.required]),
@@ -80,10 +90,8 @@ export class AddEditCouponComponent implements OnInit {
       },
     ],
   };
-  add() {
-    console.log(this.addCoupon.value);
-    console.log(this.image);
 
+  add() {
     if (this.addCoupon.valid) {
       delete this.addCoupon.value['image_path']
       delete this.addCoupon.value['banner_path']
@@ -91,13 +99,15 @@ export class AddEditCouponComponent implements OnInit {
       this.addCoupon.value['banner_path'] = this.banner_image
       this.CouponService.AddCoupon(this.addCoupon.value).subscribe((res: any) => {
         console.log(res);
-
+        this.addCoupon.reset()
       }, (err) => {
         console.log(err);
 
       })
     }
-  }
+  };
+
+
   onFileChanged(event: any) {
     this.selectedFile = event.target.files[0]
     console.log(this.selectedFile, this.selectedFile.name, '==========');
@@ -111,7 +121,9 @@ export class AddEditCouponComponent implements OnInit {
 
     }
     this.addCoupon.setValue({ image_path: this.image })
-  }
+  };
+
+
   onFilChanged(event: any) {
     this.selectedFile = event.target.files[0]
     console.log(this.selectedFile, this.selectedFile.name, '=====BANNER =====');
@@ -125,7 +137,11 @@ export class AddEditCouponComponent implements OnInit {
 
     }
     this.addCoupon.setValue({ banner_image: this.banner_image })
-  }
+  };
 
+  updateCoupon() {
+    console.log(this.addCoupon.value);
+
+  }
 
 }

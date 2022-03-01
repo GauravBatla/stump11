@@ -20,7 +20,6 @@
                                     <th>Start Date</th>
                                     <th>End Date</th>
                                     <th>View</th>
-                                    <th>View</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -30,13 +29,6 @@
                                     <td>{{item.start_date|date}}</td>
                                     <td>{{item.expiry_date|date}}</td>
                                     <!-- <td>{{item.userType}}</td> -->
-
-                                    <td>
-                                        <a [routerLink]="['/user/detail/',item._id]"
-                                            routerLinkActive="router-link-active">
-                                            <mat-icon> remove_red_eye</mat-icon>
-                                        </a>
-                                    </td>
                                     <td>
                                         <a >
                                             <button (click)="onUpdate(item)" mat-raised-button><mat-icon>edit </mat-icon></button>

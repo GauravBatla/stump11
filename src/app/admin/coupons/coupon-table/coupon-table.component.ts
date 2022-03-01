@@ -12,8 +12,8 @@ export class CouponTableComponent implements OnInit {
 
   constructor(private couponService: CouponService, public dialog: MatDialog) { }
   data: any
-p:any
-test:any ={}
+  p: any
+  test: any = {}
   ngOnInit(): void {
     this.couponList('active')
   }
@@ -22,11 +22,11 @@ test:any ={}
     const dialogRef = this.dialog.open(AddEditCouponComponent, {
       data: {
         status: 'status',
-        data:this.test
+        data: this.test
       },
       width: '80%',
       height: '90%',
-    
+
     });
 
     dialogRef.afterClosed().subscribe((res) => {
@@ -36,22 +36,22 @@ test:any ={}
     })
   };
 
-  onUpdate(data:any) {
+  onUpdate(data: any) {
     const dialogRef = this.dialog.open(AddEditCouponComponent, {
       data: {
-        update:true,
-        data:data
-        
+        update: true,
+        data: data
+
       },
       width: '80%',
       height: '90%',
-    
+
     });
 
     dialogRef.afterClosed().subscribe((res) => {
 
       // this.products();
-    this.couponList('active')
+      this.couponList('active')
 
     })
   };
@@ -60,7 +60,7 @@ test:any ={}
     this.couponService.couponsList(status).subscribe((res: any) => {
       this.data = res.data
       console.log(this.data);
-      
+
     }, (err) => {
       console.log(err);
 
