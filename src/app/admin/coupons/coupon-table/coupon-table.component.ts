@@ -24,7 +24,7 @@ export class CouponTableComponent implements OnInit {
         status: 'status',
         data: this.test
       },
-      width: '80%',
+      width: '70%',
       height: '90%',
 
     });
@@ -43,7 +43,7 @@ export class CouponTableComponent implements OnInit {
         data: data
 
       },
-      width: '80%',
+      width: '70%',
       height: '90%',
 
     });

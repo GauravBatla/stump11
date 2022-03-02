@@ -15,5 +15,17 @@ export class ContestService {
   categoryList() {
     return this._http.get(environment.baseUrl + 'api/admin/category')
   };
-  
+
+  AddContest(data: any) {
+    return this._http.post(environment.baseUrl + "api/admin/add/contest", data)
+  }
+
+  contestList() {
+    return this._http.get(environment.baseUrl + "api/admin/list/contest")
+  }
+
+  addSlots(data: any) {
+    return this._http.post(environment.baseUrl + "api/admin/testing", data)
+  }
+
 }

@@ -15,7 +15,7 @@ export class ContestListComponent implements OnInit {
   p: any
   test: any = {}
   ngOnInit(): void {
-    // this.getCatList()
+    this.contestList()
   }
 
   addContest() {
@@ -26,7 +26,6 @@ export class ContestListComponent implements OnInit {
       },
       width: '80%',
       height: '80%',
-
     });
 
     dialogRef.afterClosed().subscribe((res) => {
@@ -37,6 +36,7 @@ export class ContestListComponent implements OnInit {
 
     })
   };
+
   // CatUpdate() {
   //   const dialogRef = this.dialog.open(ContestAddCategorieComponent, {
   //     data: {
@@ -57,11 +57,11 @@ export class ContestListComponent implements OnInit {
   //   })
   // };
 
-  // getCatList() {
-  //   this.ContestService.categoryList().subscribe((res: any) => {
-  //     if (res) {
-  //       this.data = res.data
-  //     }
-  //   })
-  // }
+  contestList() {
+    this.ContestService.contestList().subscribe((res: any) => {
+      if (res) {
+        this.data = res.data
+      }
+    })
+  }
 }

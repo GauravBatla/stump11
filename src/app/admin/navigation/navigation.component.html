@@ -1,6 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+  <mat-sidenav style="width: 14%;" #drawer class="sidenav" fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Admin</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item [routerLink]="['/user']" routerLinkActive="router-link-active">Dashboard</a>
@@ -8,8 +9,8 @@
       <a mat-list-item [routerLink]="['/coupons']" routerLinkActive="router-link-active">Coupons</a>
       <a mat-list-item [routerLink]="['/user-documents']" routerLinkActive="router-link-active">User Document</a>
       <a mat-list-item [routerLink]="['/user-transaction']" routerLinkActive="router-link-active">User Transactions</a>
+      <a mat-list-item [routerLink]="['/banners']" routerLinkActive="router-link-active">Banners</a>
       <a mat-list-item [routerLink]="['/app-setting']" routerLinkActive="router-link-active">App Setting</a>
-      <!-- <a mat-list-item [routerLink]="['/contest']" routerLinkActive="router-link-active">Contest</a> -->
       <mat-accordion>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
@@ -17,10 +18,10 @@
               Contest Menu
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <!-- <a mat-list-item [routerLink]="['page/add']">Add Contest Category</a> -->
           <a mat-list-item [routerLink]="['contest/categories']">Contest Categories</a>
+          <a mat-list-item [routerLink]="['contest/add']">Contest Add</a>
+          <a mat-list-item [routerLink]="['contest/slots']">Add Slots</a>
           <a mat-list-item [routerLink]="['contest/list']">Contest List</a>
-          <!-- <a mat-list-item [routerLink]="[/]"> Kuch Bhi </a> -->
         </mat-expansion-panel>
       </mat-accordion>
       <mat-accordion>
@@ -32,7 +33,6 @@
           </mat-expansion-panel-header>
           <a mat-list-item [routerLink]="['page/add']">Add Content </a>
           <a *ngFor="let item of list" mat-list-item [routerLink]="['page/detail/',item._id]">{{item.title}} </a>
-          <!-- <a mat-list-item [routerLink]="[/]"> Kuch Bhi </a> -->
         </mat-expansion-panel>
       </mat-accordion>
     </mat-nav-list>
@@ -47,6 +47,5 @@
     </mat-toolbar>
     <router-outlet></router-outlet>
 
-    <!-- Add Content Here -->
   </mat-sidenav-content>
 </mat-sidenav-container>

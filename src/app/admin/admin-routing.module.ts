@@ -34,8 +34,12 @@ const routes: Routes = [
         loadChildren: () => import('./app-setting/app-setting.module').then(m => m.AppSettingModule)
       },
       {
-        path:"contest",
-        loadChildren:()=>import('./contest/contest.module').then(m=>m.ContestModule)
+        path: "contest",
+        loadChildren: () => import('./contest/contest.module').then(m => m.ContestModule)
+      },
+      {
+        path:"banners",
+        loadChildren: () => import('./banner/banner.module').then(m => m.BannerModule)
       }
     ]
 

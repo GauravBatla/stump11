@@ -1,39 +1,33 @@
 <mat-card class="m-5">
-    <mat-card-title class="d-flex justify-content-center m-2">Add Contest  </mat-card-title>
+    <mat-card-title class="d-flex justify-content-center m-2">Add Contest Slots</mat-card-title>
+    <button mat-raised-button (click)="ngOnInit()">text</button>
     <mat-card-subtitle></mat-card-subtitle>
     <mat-card-actions>
         <div class="container">
             <div class="row">
                 <form [formGroup]="form" (ngSubmit)="addContest()">
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label for="">Select Category</label>
                         <select class="form-select" formControlName="categorieId" aria-label="Default select example">
                             <option selected>Open this select menu</option>
                             <option *ngFor="let item of catList" value="{{item._id}}">{{item.title}}</option>
                         </select>
-                    </div>
+                    </div> -->
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Total Spots</label>
-                        <input class="form-control" formControlName="totalMember" type="text" id="formFile">
-                    </div>
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">Contest Price</label>
-                        <input class="form-control" formControlName="price" type="text" id="formFile">
-                    </div>
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">Contest Entry</label>
-                        <input class="form-control" formControlName="entryPrice" type="text" id="formFile">
+                        <input class="form-control" (change)="add($event)" formControlName="slotNumber" type="text"
+                            id="formFile">
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Contest Type</label>
-                        <input class="form-control" type="text" formControlName="contestType" id="formFile">
+                        <input class="form-control" formControlName="contestType" type="text" id="formFile">
                     </div>
-                    <div formArrayName="ranks" *ngFor="let creds of form.controls.ranks?.value; let i = index">
+                    <div formArrayName="prizePool" *ngFor="let creds of form.controls.prizePool?.value; let i = index">
                         <ng-container [formGroupName]="i">
                             <div class="row">
                                 <div class="col">
                                     <label for="text" class="form-label">Rank</label>
-                                    <input class="form-control"  formControlName="rank" type="text">
+                                    <input class="form-control" formControlName="rank" type="text">
                                 </div>
                                 <div class="col">
                                     <label for="formFile" class="form-label">Percentage</label>

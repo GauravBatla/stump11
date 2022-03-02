@@ -7,6 +7,7 @@ import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-m
 import { ContestListComponent } from './contest-list/contest-list.component';
 import { ContestCategorieListComponent } from './contest-categorie-list/contest-categorie-list.component';
 import { ContestAddCategorieComponent } from './contest-add-categorie/contest-add-categorie.component';
+import { SlotsComponent } from './slots/slots.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ContestAddCategorieComponent } from './contest-add-categorie/contest-ad
     AddContestComponent,
     ContestListComponent,
     ContestCategorieListComponent,
-    ContestAddCategorieComponent
+    ContestAddCategorieComponent,
+    SlotsComponent
   ],
   imports: [
     CommonModule,
