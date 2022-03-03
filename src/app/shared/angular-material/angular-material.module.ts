@@ -20,8 +20,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AngularEditorModule } from '@kolkov/angular-editor';
-import {MatExpansionModule} from '@angular/material/expansion'
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatExpansionModule } from '@angular/material/expansion'
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 const ui = [
   MatCardModule,
