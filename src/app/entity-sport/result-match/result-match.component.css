@@ -1,0 +1,23 @@
+section {
+    box-sizing: border-box;
+    border: 1px solid blue;
+
+    float: left;
+  }
+  
+ 
+  
+  .left {
+    float: left;
+    background: pink;
+  }
+  
+  .right {
+    float: right;
+    background: cyan;
+  }
+  mat-card{
+      text-align: center;
+      height: 110%;
+  }
+ 

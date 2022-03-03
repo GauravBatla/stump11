@@ -40,6 +40,9 @@ const routes: Routes = [
       {
         path:"banners",
         loadChildren: () => import('./banner/banner.module').then(m => m.BannerModule)
+      },{
+        path:"entity-sport",
+        loadChildren:()=> import("../entity-sport/entity-sport.module").then(m=>m.EntitySportModule)
       }
     ]
 

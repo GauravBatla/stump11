@@ -22,7 +22,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import {MatExpansionModule} from '@angular/material/expansion'
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-
+import {MatChipsModule} from '@angular/material/chips';
 const ui = [
   MatCardModule,
   MatFormFieldModule,
@@ -51,7 +51,8 @@ const ui = [
   MatDialogModule,
   AngularEditorModule,
   MatExpansionModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatChipsModule
 ]
 
 @NgModule({

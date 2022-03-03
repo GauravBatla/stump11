@@ -35,6 +35,29 @@
           <a *ngFor="let item of list" mat-list-item [routerLink]="['page/detail/',item._id]">{{item.title}} </a>
         </mat-expansion-panel>
       </mat-accordion>
+      <br>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Teams
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list dense>
+              <mat-list-item [routerLink]="['/entity-sport']" routerLinkActive="router-link-active" >
+                  {{'Live Match'}}
+              </mat-list-item>
+              <mat-list-item [routerLink]="['/entity-sport/upcoming-match']" routerLinkActive="router-link-active" >
+                {{'upcoming Match'}}
+            </mat-list-item>
+            <mat-list-item [routerLink]="['/entity-sport/result-match']" routerLinkActive="router-link-active" >
+              {{'result Match'}}
+          </mat-list-item>
+          </mat-list>
+          <!-- <a mat-list-item [routerLink]="['page/add']">Add Content </a>
+          <a *ngFor="let item of list" mat-list-item [routerLink]="['page/detail/',item._id]">{{item.title}} </a> -->
+        </mat-expansion-panel>
+      </mat-accordion>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
