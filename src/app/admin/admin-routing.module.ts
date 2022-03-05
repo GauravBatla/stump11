@@ -40,6 +40,13 @@ const routes: Routes = [
       {
         path:"banners",
         loadChildren: () => import('./banner/banner.module').then(m => m.BannerModule)
+      },{
+        path:"entity-sport",
+        loadChildren:()=> import("../entity-sport/entity-sport.module").then(m=>m.EntitySportModule)
+      },
+      {
+        path:"user-teams",
+        loadChildren:()=>import("./user-created-teams/user-created-teams.module").then(m=>m.UserCreatedTeamsModule)
       }
     ]
 

@@ -25,15 +25,15 @@ export class UserDocumentTableComponent implements OnInit {
     })
   }
 
-  openDialog(docType: any , image_path:any) {
+  openDialog(docType: any , image_path:any,id:any) {
     const dialogRef = this.dialog.open(ViewDocsComponent, {
       data: {
         type: docType,
-        image_path:image_path
+        image_path:image_path,
+        id:id
       },
       width: '80%',
       height: '90%',
-
     });
 
     dialogRef.afterClosed().subscribe((res) => {

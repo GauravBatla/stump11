@@ -1,0 +1,88 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <mat-card [routerLink]="['iteam-view',item.match_id]" routerLinkActive="router-link-active" >
+                <mat-card-header style="justify-content: center;">
+                    <mat-card-title  style="letter-spacing: 2px; font-size: 12px; background-color: whitesmoke; color: lightgreen; width: auto; padding: 7px; border-radius: 20px; text-transform: uppercase; text-align: center;">{{item.competition.type}}</mat-card-title>
+
+                    <mat-card-title  style="letter-spacing: 2px; font-size: 12px;">
+                        {{item.title}}
+                    </mat-card-title>
+                    <mat-card-subtitle style="text-align: center;">
+                        {{item.short_title}}
+                    </mat-card-subtitle>
+                    <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="item.toss.winner ==0? false:true " aria-label="Example icon-button with a menu">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                </mat-card-header>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img matCardAvatar [src]="item.teama.logo_url" width="110px" alt="">
+                        </div>
+                        <div class="col-md-4" style="text-align: center;">
+                            <!-- {{item.date_start_ist| Date:'h:mm a z'}} -->
+                         <!-- mnbvcx -->
+                         {{item.date_start_ist | date:'fullDate'}}
+                            {{item.date_start_ist | date:'h:mm a z'}}
+
+                            {{item.result}}
+                            
+                            <!-- <app-timer [start]="item.date_start_ist" [showTimerControls]="true"></app-timer> -->
+                        </div>
+                        <div class="col-md-4">
+                            <img style="float: right;" matCardAvatar [src]="item.teamb.logo_url" width="110px" alt="">
+                        </div>
+                    </div>
+                </div>
+                <mat-card-content>
+                   
+                </mat-card-content>
+                <!-- <mat-card-content>
+                    Text content
+                </mat-card-content>
+             
+                <mat-card-footer>
+                    Footer
+                </mat-card-footer> -->
+                <mat-card-footer>
+                 
+           
+                </mat-card-footer>
+            </mat-card>
+        </div>
+    </div>
+</div>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-4" *ngIf="item.toss.winner ==0? false:true ">
+          
+            <div class="card text-left py-3">
+                <h1 style="text-align: center;">Toss</h1>
+              <img class="card-img-top" src="holder.js/100px180/" alt="">
+              <div class="card-body">
+                <h4 class="card-title text-center">
+                    {{item.toss.text}}
+                </h4>
+                <p class="card-text">Body</p>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="openDialog(item)">
+      <mat-icon>dialpad</mat-icon>
+      <span>Create Team</span>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>voicemail</mat-icon>
+      <span>Check voice mail</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Disable alerts</span>
+    </button>
+  </mat-menu>

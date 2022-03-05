@@ -16,6 +16,10 @@ export class ContestService {
     return this._http.get(environment.baseUrl + 'api/admin/category')
   };
 
+  updateCat(data:any, id:any){
+    return this._http.put(environment.baseUrl +'api/admin/category/'+id , data)
+  }
+
   AddContest(data: any) {
     return this._http.post(environment.baseUrl + "api/admin/add/contest", data)
   }
@@ -27,5 +31,4 @@ export class ContestService {
   addSlots(data: any) {
     return this._http.post(environment.baseUrl + "api/admin/testing", data)
   }
-
 }

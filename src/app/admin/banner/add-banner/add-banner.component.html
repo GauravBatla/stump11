@@ -8,9 +8,11 @@
                 <form>
                     <!-- [formGroup]="addCat" (ngSubmit)="add()" -->
                     <div class="mb-3">
-                        <label for="formFile" class="form-label">Category Name</label>
+                        <label for="formFile" class="form-label">Banner Image</label>
                         <input class="form-control" [(ngModel)]="images" (change)="onFileChanged($event)" name="images"
                             required type="file" id="formFile">
+                            <h4 style="color: red;"> {{formError.images}}
+                            </h4>
                     </div>
                     <div class="mb-3">
                         <button mat-stroked-button (click)="onClick()" type="submit" color="primary">Add

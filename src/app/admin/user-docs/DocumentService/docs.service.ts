@@ -14,9 +14,9 @@ export class DocsService {
     return this._http.get(environment.baseUrl + 'api/admin/user/documents/list')
   };
 
-  // approvedUserDocs(): Observable<any> {
-  //   return this._http.put(environment.baseUrl + 'api/admin/document/verify')
-  // };
+  approvedUserDocs(data:any): Observable<any> {
+    return this._http.put(environment.baseUrl + 'api/admin/document/verify',data)
+  };
 
-  
+
 }

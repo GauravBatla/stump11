@@ -6,22 +6,20 @@
                 <div class="card-body">
                     <h4 style="text-align: center;" class="card-title">Coupons Control
                     </h4>
-
-                    <!-- <p class="card-description">
-                        Reject Photo Expert/User
-                    </p> -->
-
                     <form class="example-container" [formGroup]="addCoupon"  (ngSubmit)="addData?add():updateCoupon()">
                         <div class="row mt-5">
                             <div class="col">
                                 <label for="">Title</label>
                                 <input type="text" formControlName="title" class="form-control"
                                     placeholder="enter title">
+                                    <h5 style="color: red; "> {{formError.title}} </h5>
+
                             </div>
                             <div class="col">
                                 <label for="">Price</label>
                                 <input type="text" formControlName="price" class="form-control"
                                     placeholder="enter price">
+                                    <h5 style="color: red; "> {{formError.price}} </h5>
                             </div>
                         </div>
                         <div class="row mt-5">
@@ -29,11 +27,15 @@
                                 <label for="">Start date</label>
                                 <input type="date" value={{start_date}} formControlName="start_date" class="form-control"
                                     placeholder="Start Date">
+                                    <h5 style="color: red; "> {{formError.start_date}} </h5>
+
                             </div>
                             <div class="col">
                                 <label for="">End Date</label>
                                 <input type="date" formControlName="expiry_date" class="form-control"
                                     placeholder="End Date">
+                                    <h5 style="color: red; "> {{formError.expiry_date}} </h5>
+
                             </div>
                         </div>
                         <div class="row mt-5">
@@ -41,6 +43,8 @@
                                 <label for="">Image</label>
                                 <input type="file" (change)="onFileChanged($event)" formControlName="image_path"
                                     class="form-control" placeholder="enter title">
+                                    <h5 style="color: red; "> {{formError.image_path}} </h5>
+
                                 <img *ngIf="image" style="width: 100px; height: 100px;" [src]='image' alt="">
                                 <div>
                                     <p>image </p>
@@ -52,9 +56,9 @@
                                 <label for="">Add Banner</label>
                                 <input type="file" (change)="onFilChanged($event)" formControlName="banner_path"
                                     class="form-control" placeholder="enter title">
+                                    <h5 style="color: red; "> {{formError.banner_path}} </h5>
                                 <img *ngIf="banner_image" style="width: 100px; height: 100px;" [src]='banner_image'
                                     alt="">
-
                                 <div>
                                     <p>image </p>
                                     <img *ngIf="show_banner" style="width: 250px; height: 250px;"
@@ -68,18 +72,22 @@
                                 <label for="">Description</label>
                                 <textarea rows="3" class="form-control" formControlName="description"
                                     placeholder="Enter Description"> </textarea>
+                                    <h5 style="color: red; "> {{formError.description}} </h5>
                             </div>
                             <div class="col">
 
                                 <label for="">User used count</label>
                                 <input type="text" formControlName="user_used_count" class="form-control"
                                     placeholder="User Used count">
+                                    <h5 style="color: red; "> {{formError.user_used_count}} </h5>
                             </div>
 
 
                         </div>
                         <label class="mt-5">Terms Conditions</label>
                         <angular-editor rows="5" formControlName="terms_conditions"></angular-editor>
+                        <h5 style="color: red; "> {{formError.terms_conditions}} </h5>
+
                         <button *ngIf="addData" class="mt-3" type="submit" mat-stroked-button color="primary">Add</button>
                         <button *ngIf="update" class="mt-3" type="submit" mat-stroked-button color="primary">Update</button>
                     </form>

@@ -35,6 +35,9 @@ export class BannerListComponent implements OnInit {
   bannerList() {
     this.bannerService.bannerList().subscribe((res: any) => {
       this.data = res.data
+      console.log('====================================');
+      console.log(this.data);
+      console.log('====================================');
     })
   }
 }

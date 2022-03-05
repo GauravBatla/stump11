@@ -1,9 +1,8 @@
-<mat-card class="m-5">
+<!-- <mat-card class="m-5">
     <mat-card-title class="d-flex justify-content-center m-2">Contests List</mat-card-title>
     <mat-card-subtitle></mat-card-subtitle>
     <mat-card-actions>
-        <!-- <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>  -->
+       
         <div class="d-flex justify-content-end mr-5">
             <button mat-stroked-button (click)="addContest()" color="primary">Add Contests</button>
         </div>
@@ -36,4 +35,100 @@
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
     </mat-card-actions>
-</mat-card>
+</mat-card> -->
+
+
+<div class="container">
+    <div class="row p-3">
+        <h1 class="py-4">
+        </h1>
+        <!-- <div class="col-md-12">
+            <mat-chip-list aria-label="Fish selection">
+                <mat-chip style="background-color: green; color: white;">Live</mat-chip>
+                <mat-chip (onclick)="getUpcomingMatch()" style="background-color: skyblue; color: white;">upcoming</mat-chip>
+                <mat-chip style="background-color: red; color: white;">result</mat-chip>
+              
+            </mat-chip-list>
+           
+        </div> -->
+        <!-- categorieName: "Specially For Yo"
+        contestType: "maga"
+        createdAt: "2022-03-03T06:29:02.531Z"
+        date_end: "2022-03-02T20:30:00.000Z"
+        date_start: "2022-03-02T10:30:00.000Z"
+        entryPrice: 50
+        match_id: "53202"
+        timestamp_end: "1646272800"
+        timestamp_start: "1646236800"
+        totalMember: 100
+        updatedAt: "2022-03-03T06:29:02.531Z"
+        winningPercentUser: 45
+        winningPrice: 6000 -->
+        <br>
+        <div class="col-md-4 mt-3 p-3" *ngFor="let item of data">
+
+            <mat-card style="cursor: pointer;" [routerLink]="['/entity-sport/iteam-view',item.match_id]"
+                routerLinkActive="router-link-active">
+                <mat-card-header style="justify-content: center;">
+                    <mat-card-title style="letter-spacing: 2px; font-size: 12px;">{{item.title}}</mat-card-title>
+                    <mat-card-subtitle class="text-center">{{item.categorieName}}</mat-card-subtitle>
+                </mat-card-header>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <span>
+                                Match Id :  {{item.match_id}}
+                            </span>
+                             
+                        </div>
+                        <div class="col-md-4">
+                            <!-- {{item.date_start_ist| Date:'h:mm a z'}} -->
+
+                            <!-- {{item.timestamp_start | date:'h:mm a z'}} -->
+                            <!-- <img matCardAvatar src="assets/logo.png" width="110px" alt=""> -->
+
+                            <!-- <app-timer [start]="item.date_start_ist" [showTimerControls]="true"></app-timer> -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- <img style="float: right;" matCardAvatar [src]="item.teamb.logo_url" width="110px" alt=""> -->
+                            <img matCardAvatar src="assets/logo.png" width="110px" alt="">
+
+                        </div>
+                    </div>
+                </div>
+                <mat-card-content>
+                    <!-- total Price {{item.winningPrice}} -->
+
+                </mat-card-content>
+                <!-- <mat-card-content>
+                    Text content
+                </mat-card-content>
+             
+                <mat-card-footer>
+                    Footer
+                </mat-card-footer> -->
+                <mat-card-footer>
+                    <div class="d-flex justify-content-between">
+                        <p class="text-left">Wining Price {{item.winningPrice}}</p>
+                        <p class="text-right">Entery Price {{item.entryPrice}}</p>
+                    </div>
+                </mat-card-footer>
+            </mat-card>
+            <!-- <div class="card">
+            <section>
+                <div class="left">
+                    <img [src]="item.teama.logo_url" width="110px" alt="">
+                </div>
+               <div class="">
+                <p style="text-align: center;">jhgf</p>
+               </div>
+                <div class="right">
+                    <img [src]="item.teamb.logo_url" width="110px" alt="">
+                </div>
+                
+              </section>
+           </div> -->
+        </div>
+    </div>
+</div>
+

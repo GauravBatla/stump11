@@ -19,7 +19,7 @@
                 <tbody>
                     <tr *ngFor="let item of data   | paginate: { itemsPerPage: 10, currentPage: p }">
                         <td> <img  style="width: 250px; height: 250px;"
-                            src="http://192.168.68.69:4229/coupons/images/{{item.images}}" alt="Red dot" /></td>
+                            src="http://192.168.68.69:4229/coupons/banner/{{item.images}}" alt="Red dot" /></td>
                         <td> <button mat-stroked-button>
                                 <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
                             </button> </td>

@@ -1,0 +1,91 @@
+<!-- <div class="row">
+<mat-card>
+    <mat-card-header>
+        <img matCardAvatar src="Avatar source">
+        <mat-card-title>Title</mat-card-title>
+        <mat-card-subtitle>Subtitle</mat-card-subtitle>
+    </mat-card-header>
+    <img matCardImage src="Card wide image source">
+    <mat-card-content>
+        Text content
+    </mat-card-content>
+    
+    <mat-card-footer>
+        Footer
+    </mat-card-footer>
+</mat-card>
+</div> -->
+
+
+
+<!-- <div class="circle" *ngIf="liveMatchView" ></div> -->
+
+<div class="container">
+    <div class="row p-3" >
+        <h1 class="py-4">
+        </h1>
+        <div class="col-md-12">
+            <mat-chip-list aria-label="Fish selection">
+                <mat-chip style="background-color: green; color: white;">Live</mat-chip>
+                <mat-chip (onclick)="getUpcomingMatch()" style="background-color: skyblue; color: white;">upcoming</mat-chip>
+                <mat-chip style="background-color: red; color: white;">result</mat-chip>
+              
+            </mat-chip-list>
+           
+        </div>
+        <br>
+        <div class="col-md-4 mt-3 p-3" *ngFor="let item of matchdata.items">
+            <mat-card>
+                <mat-card-header style="justify-content: center;">
+                    <mat-card-title  style="letter-spacing: 2px; font-size: 12px;">{{item.title}}</mat-card-title>
+                    <mat-card-subtitle>{{item.short_title}}</mat-card-subtitle>
+                </mat-card-header>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img matCardAvatar [src]="item.teama.logo_url" width="110px" alt="">
+                        </div>
+                        <div class="col-md-4">
+                            <!-- {{item.date_start_ist| Date:'h:mm a z'}} -->
+                         
+                            {{item.date_start_ist | date:'h:mm a z'}}
+                            <!-- <app-timer [start]="item.date_start_ist" [showTimerControls]="true"></app-timer> -->
+                        </div>
+                        <div class="col-md-4">
+                            <img style="float: right;" matCardAvatar [src]="item.teamb.logo_url" width="110px" alt="">
+                        </div>
+                    </div>
+                </div>
+                <mat-card-content>
+                    {{item.competition.status}}
+                  
+                </mat-card-content>
+                <!-- <mat-card-content>
+                    Text content
+                </mat-card-content>
+             
+                <mat-card-footer>
+                    Footer
+                </mat-card-footer> -->
+                <mat-card-footer>
+                    {{item.date_start_ist | date:'fullDate'}}
+                </mat-card-footer>
+            </mat-card>
+           <!-- <div class="card">
+            <section>
+                <div class="left">
+                    <img [src]="item.teama.logo_url" width="110px" alt="">
+                </div>
+               <div class="">
+                <p style="text-align: center;">jhgf</p>
+               </div>
+                <div class="right">
+                    <img [src]="item.teamb.logo_url" width="110px" alt="">
+                </div>
+                
+              </section>
+           </div> -->
+              
+        </div>
+    </div>
+</div>

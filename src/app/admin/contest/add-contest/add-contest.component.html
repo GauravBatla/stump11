@@ -1,5 +1,5 @@
 <mat-card class="m-5">
-    <mat-card-title class="d-flex justify-content-center m-2">Add Contest  </mat-card-title>
+    <mat-card-title class="d-flex justify-content-center m-2">Add Contest </mat-card-title>
     <mat-card-subtitle></mat-card-subtitle>
     <mat-card-actions>
         <div class="container">
@@ -11,33 +11,60 @@
                             <option selected>Open this select menu</option>
                             <option *ngFor="let item of catList" value="{{item._id}}">{{item.title}}</option>
                         </select>
+                        <h5 style="color: red; "> {{formError.categorieId}} </h5>
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Select Match</label>
+                        <select class="form-select" (change)="add($event)" formControlName="match_id" aria-label="Default select example">
+                            <option disabled selected>Open this select menu</option>
+                            <option *ngFor="let item of matchdata" value="{{item.match_id}}">{{item.title}}</option>
+                        </select>
+                        <h5 style="color: red; "> {{formError.match_id}} </h5>
+
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Total Spots</label>
                         <input class="form-control" formControlName="totalMember" type="text" id="formFile">
+                        <h5 style="color: red; "> {{formError.totalMember}} </h5>
+
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Contest Price</label>
-                        <input class="form-control" formControlName="price" type="text" id="formFile">
+                        <input class="form-control" formControlName="winningPrice" type="text" id="formFile">
+                        <h5 style="color: red; "> {{formError.winningPrice}} </h5>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">winning Percent User</label>
+                        <input class="form-control" formControlName="winningPercentUser" type="text" id="formFile">
+                        <h5 style="color: red; "> {{formError.winningPercentUser}} </h5>
+
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Contest Entry</label>
                         <input class="form-control" formControlName="entryPrice" type="text" id="formFile">
+                        <h5 style="color: red; "> {{formError.entryPrice}} </h5>
+
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Contest Type</label>
                         <input class="form-control" type="text" formControlName="contestType" id="formFile">
+                        <h5 style="color: red; "> {{formError.contestType}} </h5>
+
                     </div>
                     <div formArrayName="ranks" *ngFor="let creds of form.controls.ranks?.value; let i = index">
                         <ng-container [formGroupName]="i">
                             <div class="row">
                                 <div class="col">
                                     <label for="text" class="form-label">Rank</label>
-                                    <input class="form-control"  formControlName="rank" type="text">
+                                    <input class="form-control" formControlName="rank" type="text">
+                                    <h5 style="color: red; "> {{formError.rank}} </h5>
+
                                 </div>
                                 <div class="col">
                                     <label for="formFile" class="form-label">Percentage</label>
                                     <input class="form-control" formControlName="percent" type="text">
+                                    <h5 style="color: red; "> {{formError.percent}} </h5>
+
                                 </div>
                             </div>
                         </ng-container>

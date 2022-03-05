@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row  d-flex justify-content-center pt-5">
         <div class="col-md-6">
             <div class="card">
@@ -21,5 +21,21 @@
                 </mat-card>
             </div>
         </div>
+    </div>
+</div> -->
+
+<div class="loginBox"> <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px">
+    <h3>Sign in here</h3>
+    <h1 class="text-center py-2">Login In</h1> <br> <span style="color: red; text-align: center;">
+        <h5> {{ msg.error?msg.error:" "}} </h5>
+    </span>
+
+    <form [formGroup]="adminLogin" (ngSubmit)="login()">
+        <div class="inputBox"> <input id="uname" type="text" formControlName="email" placeholder="Email">
+            <input id="pass" type="password" formControlName="password" placeholder="Password">
+        </div> <input type="submit" name="" value="Login">
+    </form> <a href="#">Forget Password<br> </a>
+    <div class="text-center">
+        <p style="color: #59238F;">Sign-Up</p>
     </div>
 </div>

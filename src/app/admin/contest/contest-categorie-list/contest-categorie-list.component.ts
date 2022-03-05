@@ -38,11 +38,12 @@ export class ContestCategorieListComponent implements OnInit {
 
     })
   };
-  CatUpdate() {
+  CatUpdate(data:any) {
     const dialogRef = this.dialog.open(ContestAddCategorieComponent, {
       data: {
         status: 'status',
-        data: this.test
+        data: data,
+        update:true
       },
       width: '40%',
       height: '60%',

@@ -61,6 +61,9 @@ export class ContestListComponent implements OnInit {
     this.ContestService.contestList().subscribe((res: any) => {
       if (res) {
         this.data = res.data
+        console.log('====================================');
+        console.log(this.data);
+        console.log('====================================');
       }
     })
   }

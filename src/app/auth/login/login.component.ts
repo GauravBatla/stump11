@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login() {
+  login() {    
     if (this.adminLogin.valid) {
       this.loginService.login(this.adminLogin.value).subscribe((res: any) => {
         console.log(res + "hgcjkn");
@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
         });
       }, (err) => {
         let msg = err.error.errors[0].msg ? err.error.errors[0].msg : null;
+        
         // console.log(msg);
         this.msg['error'] = msg
       })

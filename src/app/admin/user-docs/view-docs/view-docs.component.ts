@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DocsService } from '../DocumentService/docs.service';
 
 @Component({
   selector: 'app-view-docs',
@@ -8,19 +9,34 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ViewDocsComponent implements OnInit {
 
-  name:any
+  name: any
   type: any
   image: any
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
+  id: any
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog, private docsService: DocsService) { }
 
   ngOnInit(): void {
-    // console.log(this.data);
+    console.log(this.data);
     this.type = this.data.type
     this.image = this.data.image_path
   }
 
-  update(){
-    console.log(this.name);
-    
+  update() {
+    let options = {
+      panCardImageVerfiy: this.name,
+      _id: this.data.id
+    }
+    // console.log(this.name);
+    // this.dialog.closeAll()
+    this.docsService.approvedUserDocs(options).subscribe((res: any) => {
+      if (res) {
+        console.log(res);
+        
+        this.dialog.closeAll()
+      }
+    }, (err: any) => {
+      console.log(err);
+
+    })
   }
 }

@@ -19,7 +19,7 @@
                 <tbody>
                     <tr *ngFor="let item of data   | paginate: { itemsPerPage: 10, currentPage: p }">
                         <td>{{item.title}}</td>
-                        <td> <button mat-stroked-button>
+                        <td> <button (click)="CatUpdate(item)" mat-stroked-button>
                                 <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
                             </button>
                         </td>

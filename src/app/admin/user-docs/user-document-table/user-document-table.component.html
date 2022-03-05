@@ -48,21 +48,21 @@
                         </td> -->
                         <td>
                             <ng-container *ngIf="item.userInfo.panCardImageVerfiy == 0 ? true:false">
-                                <button (click)="openDialog('pancard',item.userInfo.panCardImage)" mat-raised-button
+                                <button (click)="openDialog('pancard',item.userInfo.panCardImage,item._id)" mat-raised-button
                                     style="background-color: rgb(238, 238, 12);">
                                     Pending
                                     <mat-icon> remove_red_eye</mat-icon>
                                 </button>
                             </ng-container>
                             <ng-container *ngIf="item.userInfo.panCardImageVerfiy == 1? true:false">
-                                <button (click)="openDialog('pancard',item.userInfo.panCardImage)" mat-raised-button
+                                <button (click)="openDialog('pancard',item.userInfo.panCardImage,item._id)" mat-raised-button
                                     color="primary">
                                     Active
                                     <mat-icon> remove_red_eye</mat-icon>
                                 </button>
                             </ng-container>
                             <ng-container *ngIf="item.userInfo.panCardImageVerfiy == 2? true:false">
-                                <button (click)="openDialog('pancard',item.userInfo.panCardImage)" mat-raised-button
+                                <button (click)="openDialog('pancard',item.userInfo.panCardImage,item._id)" mat-raised-button
                                     color="warn">
                                     Reject
                                     <mat-icon> remove_red_eye</mat-icon>
