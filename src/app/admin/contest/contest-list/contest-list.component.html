@@ -67,7 +67,7 @@
         <br>
         <div class="col-md-4 mt-3 p-3" *ngFor="let item of data">
 
-            <mat-card style="cursor: pointer;" [routerLink]="['/entity-sport/iteam-view',item.match_id]"
+            <mat-card style="cursor: pointer;" [routerLink]="['/contest/team',item.match_id]"
                 routerLinkActive="router-link-active">
                 <mat-card-header style="justify-content: center;">
                     <mat-card-title style="letter-spacing: 2px; font-size: 12px;">{{item.title}}</mat-card-title>

@@ -14,7 +14,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class AddEditCouponComponent implements OnInit {
 
   addData = true
-  formError:any = {}
+  formError: any = {}
   update: any = false
   showImage: any
   show_banner: any
@@ -37,8 +37,7 @@ export class AddEditCouponComponent implements OnInit {
     this.show_banner = this.data.data.banner_path
     this.start_date = this.data.data.start_date
   };
-
-
+ 
   addCoupon = new FormGroup({
     title: new FormControl(this.data.data.title ? this.data.data.title : null, [Validators.required]),
     image_path: new FormControl(this.data.data.image_path ? this.data.data.image_path : null, [Validators.required]),
@@ -124,7 +123,7 @@ export class AddEditCouponComponent implements OnInit {
     }
     this.addCoupon.setValue({ image_path: this.image })
   };
- 
+
   onFilChanged(event: any) {
     this.selectedFile = event.target.files[0]
     console.log(this.selectedFile, this.selectedFile.name, '=====BANNER =====');

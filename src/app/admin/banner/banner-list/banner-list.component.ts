@@ -20,7 +20,7 @@ export class BannerListComponent implements OnInit {
   addBanner() {
     const dialogRef = this.dialog.open(AddBannerComponent, {
       data: {
-        status: 'status',
+        status: 'add'
         // data: this.test
       },
       width: '60%',
@@ -28,6 +28,7 @@ export class BannerListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((res) => {
+      this.bannerList()
 
     })
   };
@@ -40,4 +41,22 @@ export class BannerListComponent implements OnInit {
       console.log('====================================');
     })
   }
+
+  bannerUpdate(data: any) {
+    const dialogRef = this.dialog.open(AddBannerComponent, {
+      data: {
+        status: 'update',
+        data: data,
+        update: true
+      },
+      width: '60%',
+      height: '70%',
+    });
+
+    dialogRef.afterClosed().subscribe((res) => {
+      this.bannerList()
+    })
+  }
+
+
 }

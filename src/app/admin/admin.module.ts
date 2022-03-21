@@ -18,7 +18,6 @@ import { CouponDetailsComponent } from './coupons/coupon-details/coupon-details.
     AdminRoutingModule,
     LayoutModule,
     AngularMaterialModule,
-
   ]
 })
 export class AdminModule { }

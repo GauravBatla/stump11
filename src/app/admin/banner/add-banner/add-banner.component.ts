@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { BannerService } from '../bannerService/banner.service';
 
 @Component({
@@ -11,18 +11,25 @@ import { BannerService } from '../bannerService/banner.service';
 export class AddBannerComponent implements OnInit {
 
   formError: any = {}
+  add = true
   msg: any = {}
-  constructor(private bannerService: BannerService, public dialog: MatDialog) { }
+  constructor(private bannerService: BannerService, public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: any) { }
   images: any
+  showImg: any
   ngOnInit(): void {
+    console.log('====================================');
+    // console.log('data', this.data.data.images);
+    if (this.data.update == true) {
+      this.showImg = this.data.data.images
+      // this.showImg = this.data.data.status
+      this.add = false;
+
+    }
+    console.log(this.data);
   }
 
-  // addBanner = new FormControl({
-  //   images:
-  // })
-
   onClick() {
-    // console.log(this.images);
+
     if (this.images) {
       this.bannerService.AddCBanner({ images: this.images }).subscribe((res: any) => {
         this.msg['success'] = "added successfully"
@@ -35,7 +42,6 @@ export class AddBannerComponent implements OnInit {
 
         })
         // console.log(this.formError);
-
       }))
     }
   };
@@ -48,8 +54,13 @@ export class AddBannerComponent implements OnInit {
     reader.onload = (e) => {
       this.images = (<FileReader>e.target).result;
       // console.log(this.images);
-
     }
     // this.addCoupon.setValue({ image_path: this.image })
   };
+
+  updateBaneers() {
+
+  }
+
+
 }

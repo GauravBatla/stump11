@@ -17,10 +17,9 @@
                         <label for="">Select Match</label>
                         <select class="form-select" (change)="add($event)" formControlName="match_id" aria-label="Default select example">
                             <option disabled selected>Open this select menu</option>
-                            <option *ngFor="let item of matchdata" value="{{item.match_id}}">{{item.title}}</option>
+                            <option *ngFor="let item of matchdata"   value="{{item.match_id}}">{{item.title}}</option>
                         </select>
                         <h5 style="color: red; "> {{formError.match_id}} </h5>
-
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Total Spots</label>

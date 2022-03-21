@@ -11,7 +11,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './guard/interseptor';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     NgbModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+  //   {
+  //     provide:HTTP_INTERCEPTORS,
+  //      useClass:AuthInterceptor,
+  //      multi:true
+  //  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

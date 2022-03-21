@@ -8,7 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./create-contest.component.css']
 })
 export class CreateContestComponent implements OnInit {
-  form:any
+  form: any
   temp: any;
   catList: any;
   angForm = new FormGroup({
@@ -18,11 +18,11 @@ export class CreateContestComponent implements OnInit {
     ])
   });
 
- 
+
   constructor(
     public dialogRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private fb:FormBuilder
+    private fb: FormBuilder
   ) {
 
     this.form = this.fb.group({
@@ -33,12 +33,11 @@ export class CreateContestComponent implements OnInit {
       price: new FormControl(null, [Validators.required]),
       ranks: this.fb.array([]),
     });
-    
-   }
+  }
 
   ngOnInit(): void {
     console.log(this.data);
-    
+
   }
 
   contestCategoryList() {
@@ -57,13 +56,13 @@ export class CreateContestComponent implements OnInit {
       })
     );
   }
-  percentCalculation(number:any, percent:any){
-     this.temp = (parseFloat(number)*parseFloat(percent))/100; 
+  percentCalculation(number: any, percent: any) {
+    this.temp = (parseFloat(number) * parseFloat(percent)) / 100;
   }
-  
+
 
   addContest() {
-   
+
     // if (this.form.valid) {
 
     //   this.contestService.AddContest(this.form.value).subscribe((res: any) => {
@@ -76,27 +75,27 @@ export class CreateContestComponent implements OnInit {
     //       console.log(err);
     //     }
     //   }))
-    }
+  }
 
 
-    get names(): FormArray {
-      return this.angForm.get('names') as FormArray;
+  get names(): FormArray {
+    return this.angForm.get('names') as FormArray;
+  }
+  onFormSubmit(): void {
+    for (let i = 0; i < this.names.length; i++) {
+      console.log(this.names.at(i).value);
     }
-    onFormSubmit(): void {
-      for (let i = 0; i < this.names.length; i++) {
-        console.log(this.names.at(i).value);
-      }
+  }
+  addNameField() {
+    this.names.push(new FormControl('', Validators.required));
+  }
+
+  deleteNameField(index: number) {
+    if (this.names.length !== 1) {
+      this.names.removeAt(index);
     }
-    addNameField() {
-      this.names.push(new FormControl('', Validators.required));
-    }
-  
-    deleteNameField(index: number) {
-      if (this.names.length !== 1) {
-        this.names.removeAt(index);
-      }
-      console.log(this.names.length);
-    }
+    console.log(this.names.length);
+  }
 
 
 }

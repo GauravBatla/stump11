@@ -1,0 +1,59 @@
+<div class="container-fluid">
+    <div class="row p-3">
+        <h1 class="py-4">User Created Teams Listed
+        </h1>
+        <div class="col-md-8">
+            <div class="table mr-5">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Title</th>
+                            <th>Contest Type</th>
+                            <th>Winner Price</th>
+                            <th>Place</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of data">
+                            <td> {{item.username}} </td>
+                            <td> {{item.title}} </td>
+                            <td> {{item.contestType}} </td>
+                            <td> {{item.winnerPrice}} </td>
+                            <td> {{item.place}} </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+            <form [formGroup]="form" (ngSubmit)="submit()">
+                <mat-form-field appearance="outline" class="w-75">
+                    <mat-label>User Teams</mat-label>
+                    <mat-select formControlName="userId" name="food">
+                        <mat-option *ngFor="let food of usersTeam" value="{{food._id}}">
+                            {{food.username}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="msg.userId">
+                        {{msg.userId}}
+                    </mat-error>
+                </mat-form-field> <br>
+                <mat-form-field appearance="outline" class="w-75">
+                    <mat-label>Application Type</mat-label>
+                    <mat-select formControlName="contestId" name="food">
+                        <mat-option *ngFor="let food of contest" value="{{food._id}}">
+                            {{food.title}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="msg.contestId">
+                    {{msg.contestId}}
+                </mat-error>
+                </mat-form-field> <br>
+                <button type="submit" class="w-75" mat-raised-button color="primary">Add</button>
+            </form>
+        </div>
+        <br>
+    </div>
+</div>

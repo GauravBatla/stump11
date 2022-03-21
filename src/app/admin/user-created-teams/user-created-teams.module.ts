@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { UserCreatedTeamsRoutingModule } from './user-created-teams-routing.module';
 import { CreatedListComponent } from './created-list/created-list.component';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
+import { UserWiningComponent } from './user-wining/user-wining.component';
 
 
 @NgModule({
   declarations: [
-    CreatedListComponent
+    CreatedListComponent,
+    UserWiningComponent
   ],
   imports: [
     CommonModule,

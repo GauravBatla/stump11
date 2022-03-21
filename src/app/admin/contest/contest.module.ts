@@ -8,6 +8,7 @@ import { ContestListComponent } from './contest-list/contest-list.component';
 import { ContestCategorieListComponent } from './contest-categorie-list/contest-categorie-list.component';
 import { ContestAddCategorieComponent } from './contest-add-categorie/contest-add-categorie.component';
 import { SlotsComponent } from './slots/slots.component';
+import { ContestUserTeamsComponent } from './contest-user-teams/contest-user-teams.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { SlotsComponent } from './slots/slots.component';
     ContestListComponent,
     ContestCategorieListComponent,
     ContestAddCategorieComponent,
-    SlotsComponent
+    SlotsComponent,
+    ContestUserTeamsComponent
   ],
   imports: [
     CommonModule,

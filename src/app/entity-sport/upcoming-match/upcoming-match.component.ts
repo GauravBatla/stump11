@@ -37,7 +37,7 @@ this.getUpcomingMatch()
      // alert("ok")
      // const status = response.status
      this.matchdata = res.response;
-     console.log(this.matchdata);
+     console.log(this.matchdata , "status-1");
      
    })
  }

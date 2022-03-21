@@ -69,11 +69,9 @@ export class SlotsComponent implements OnInit {
 
   addContest() {
     if (this.form.valid) {
-      console.log('====================================');
       const test = this.form.get('slotNumber');
       test?.enable()
       console.log(this.form.value);
-      console.log('====================================');
       this.contestService.addSlots(this.form.value).subscribe((res: any) => {
         if (res) {
           console.log(res);
@@ -85,7 +83,6 @@ export class SlotsComponent implements OnInit {
         }
       }))
     }
-
 
   }
 

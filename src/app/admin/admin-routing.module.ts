@@ -11,7 +11,6 @@ const routes: Routes = [
       {
         path: "user",
         loadChildren: () => import('./user/user.module').then(m => m.UserModule),
-
       },
       {
         path: "coupons",
@@ -45,7 +44,7 @@ const routes: Routes = [
         loadChildren:()=> import("../entity-sport/entity-sport.module").then(m=>m.EntitySportModule)
       },
       {
-        path:"user-teams",
+        path:"users",
         loadChildren:()=>import("./user-created-teams/user-created-teams.module").then(m=>m.UserCreatedTeamsModule)
       }
     ]

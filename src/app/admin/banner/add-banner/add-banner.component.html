@@ -11,13 +11,25 @@
                         <label for="formFile" class="form-label">Banner Image</label>
                         <input class="form-control" [(ngModel)]="images" (change)="onFileChanged($event)" name="images"
                             required type="file" id="formFile">
-                            <h4 style="color: red;"> {{formError.images}}
+                            <h4 *ngIf="formError.images" style="color: red;"> {{formError.images}}
                             </h4>
+                            <img  *ngIf="showImg" src="http://localhost:4228/coupons/banner/{{showImg}}" alt="" srcset="">
                     </div>
-                    <div class="mb-3">
-                        <button mat-stroked-button (click)="onClick()" type="submit" color="primary">Add
-                            Category</button>
-                    </div>
+                    <ng-container *ngIf="add; else elseTemplate">
+                        <div class="mb-3">
+                            <button mat-stroked-button (click)="onClick()" type="submit" color="primary">Add
+                                Banner</button>
+                        </div>
+
+                    </ng-container>
+                    <ng-template #elseTemplate>
+                        <div class="mb-3">
+                            <button mat-stroked-button (click)="updateBaneers()" type="submit" color="primary">Banner
+                                Update</button>
+                        </div>
+
+                    </ng-template>
+                    
                 </form>
             </div>
         </div>

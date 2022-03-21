@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // baseUrl:"http://192.168.0.33:4228/"
-  baseUrl: 'http://192.168.68.69:4228/'  //ofice ip address
+  baseUrl: "http://192.168.68.69:4228/"
+  //baseUrl: 'http://localhost:4228/'  //ofice ip address
   //  baseUrl: 'http://localhost:4228/'
 };
 
