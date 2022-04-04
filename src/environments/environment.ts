@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  baseUrl: "http://192.168.68.69:4228/"
-  //baseUrl: 'http://localhost:4228/'  //ofice ip address
+  production: true,
+  // baseUrl: "http://192.168.68.69:4228/"
+  baseUrl: "http://Stumps11.com:3000/"  //ofice ip address
   //  baseUrl: 'http://localhost:4228/'
 };
 

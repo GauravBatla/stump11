@@ -24,6 +24,7 @@
     "@kolkov/angular-editor": "^2.0.0",
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "bootstrap": "^4.5.0",
+    "express": "^4.17.3",
     "ng4-loading-spinner": "^1.2.3",
     "ngx-pagination": "^5.1.1",
     "rxjs": "~6.6.0",

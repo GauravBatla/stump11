@@ -19,7 +19,7 @@
                 <tbody>
                     <tr *ngFor="let item of data   | paginate: { itemsPerPage: 10, currentPage: p }">
                         <td> <img  style="width: 250px; height: 250px;"
-                            src="http://localhost:4228/coupons/banner/{{item.images}}" alt="Red dot" /></td>
+                            src="http://13.235.92.159:4228/coupons/banner/{{item.images}}" alt="Red dot" /></td>
                         <td>  
                                 <mat-icon aria-hidden="false" (click)="bannerUpdate(item)" aria-label="Example home icon">edit</mat-icon>
                              </td>
